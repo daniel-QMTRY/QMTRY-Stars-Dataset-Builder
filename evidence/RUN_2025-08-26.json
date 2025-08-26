@@ -1,0 +1,14 @@
+{
+  "start_date": "2024-01-01",
+  "end_date": "2024-12-31",
+  "inputs": {
+    "eligibility": "data_demo/eligibility.csv",
+    "pharmacy_claims": "data_demo/pharmacy_claims.csv"
+  },
+  "rows": {
+    "member_results": 3,
+    "contract_rollup": 1
+  },
+  "code_hash": "871c3788c3cd9bc3",
+  "timestamp": "2025-08-26T20:28:26.765596Z"
+}

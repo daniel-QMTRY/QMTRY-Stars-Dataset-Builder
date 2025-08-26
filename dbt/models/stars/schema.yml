@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: stars_member_results
+    description: "Demo member-level results table."
+    columns:
+      - name: member_id
+        tests: [not_null]
+      - name: pdc_diabetes
+        description: "PDC adherence for diabetes class (demo)."
+      - name: supd_flag
+        description: "1 if SUPD satisfied (demo)."

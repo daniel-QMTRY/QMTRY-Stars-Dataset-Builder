@@ -1,0 +1,4 @@
+member_id,contract_id,pdc_diabetes,pdc_statin,supd_flag
+1001,H1234,0.164,0.246,1
+1002,H1234,0.246,0.082,1
+1003,H1234,0.246,0.0,0

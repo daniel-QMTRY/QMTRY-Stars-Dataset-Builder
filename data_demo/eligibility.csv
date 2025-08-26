@@ -1,0 +1,4 @@
+member_id,contract_id,dob,gender,effective_date,term_date
+1001,H1234,1956-09-09,M,2020-01-01,
+1002,H1234,1968-05-14,F,2020-01-01,
+1003,H1234,1950-02-11,F,2020-01-01,

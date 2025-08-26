@@ -1,0 +1,9 @@
+member_id,fill_date,days_supply,drug_class
+1001,2024-01-10,30,diabetes
+1001,2024-02-15,30,diabetes
+1001,2024-03-05,90,statin
+1002,2024-01-20,30,diabetes
+1002,2024-04-01,30,diabetes
+1002,2024-07-01,30,diabetes
+1002,2024-08-15,30,statin
+1003,2024-02-01,90,diabetes

@@ -43,16 +43,15 @@ This repo ships with synthetic demo data and a Streamlit app so leaders can **se
 
 ## Architecture
 
-```mermaid
 flowchart LR
-    A[Inputs: Claims • Eligibility • Pharmacy] --> B[Standardize & Map\n(value_sets/*)]
-    B --> C[Measure Engine\n(PDC • SUPD • HEDIS demos)]
+    A[Inputs: Claims / Eligibility / Pharmacy] --> B[Standardize & Map<br/>value_sets]
+    B --> C[Measure Engine<br/>PDC / SUPD / HEDIS demos]
     C --> D[Member Results CSV]
     D --> E[Contract Rollup CSV]
-    C --> F[Data Quality\n(Great Expectations)]
-    D --> G[Evidence Bundle\n(JSON per run)]
+    C --> F[Data Quality<br/>Great Expectations]
+    D --> G[Evidence Bundle<br/>JSON per run]
     D --> H[Streamlit Dashboard]
-Quickstart (5 minutes)
+✅ Quickstart (clean fenced block)
 bash
 Copy
 Edit
@@ -71,7 +70,7 @@ measure_member_results.csv → member_id, contract_id, pdc_diabetes, pdc_statin,
 
 measure_contract_rollup.csv → contract_id, members, pdc_diabetes_avg, pdc_statin_avg, supd_rate
 
-Data contracts (demo)
+✅ Data contracts (clean)
 pharmacy_claims.csv
 member_id, fill_date (YYYY-MM-DD), days_supply (int), drug_class (statin|diabetes|...)
 
@@ -80,26 +79,24 @@ member_id, contract_id, dob, gender, effective_date, term_date
 
 Replace with your production schemas and map value sets under /value_sets.
 
-Measure notes (demo logic)
-PDC (Proportion of Days Covered) — days covered by fills / days in period, computed per drug class.
+✅ Measure notes (clean)
+PDC (Proportion of Days Covered): days covered by fills / days in period (per drug class).
 
-SUPD (Statin Use in Persons with Diabetes) — demo rule: ≥2 diabetes fills and ≥1 statin fill within the window.
+SUPD: demo rule: ≥2 diabetes fills and ≥1 statin fill within the window.
 
-Thresholds like PDC ≥80% are shown in the app; calibrate to the official specs licensed by your organization.
+Thresholds like PDC ≥ 80% are for illustration; align to licensed specs in production.
 
-Governance workflow
+✅ Governance workflow (fixed Mermaid)
 mermaid
 Copy
 Edit
 flowchart TD
-    R[Run job] --> V[Validations (GX)]
+    R[Run job] --> V[Validations: GX]
     V -->|pass| EB[Write Evidence JSON]
-    V -->|fail| A[Alert + Block publish]
+    V -->|fail| A[Alert and block publish]
     EB --> REL[Attach to Release/Artifact]
     REL --> AUD[Audit / Review]
-Evidence includes: dates, input paths, row counts, and a code hash for traceability.
-
-Delivery plan (pilot to scale)
+✅ Delivery plan (fixed Mermaid Gantt)
 mermaid
 Copy
 Edit
@@ -113,8 +110,8 @@ DEQM/FHIR export PoC     :        d3, 2025-08-22, 2025-09-05
 section Operate
 Provider enablement kit  :        o1, 2025-09-06, 2025-09-20
 Monthly Stars cadence    :        o2, 2025-09-21, 2025-12-15
-Repository layout
-bash
+✅ Repository layout (fenced)
+text
 Copy
 Edit
 .
@@ -134,17 +131,13 @@ Edit
 ├── dbt/ (placeholder)
 ├── value_sets/ (stubs; replace with licensed sources)
 └── evidence/ RUN_YYYY-MM-DD.json
-Security & compliance
-No PHI in this repo; demo data only.
-
-Specs: HEDIS®, CMS Star Ratings, and PQA details are licensed—use official sources for production logic.
-
-Chain-of-custody: every build writes an Evidence JSON; attach validations and commit hashes to releases.
-
-Roadmap
-Add CBP demo (Controlling High Blood Pressure) with synthetic vitals
-
-Expand value-set loader (ICD/CPT/LOINC/NDC)
+➕ Bonus “graph” you can add (renders in README)
+mermaid
+Copy
+Edit
+pie title SUPD status (demo)
+  "SUPD met" : 2
+  "SUPD not met" : 1
 
 Add DEQM export for select measures
 
